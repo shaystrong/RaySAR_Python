@@ -1,86 +1,66 @@
 # RaySAR_Python
 
-=========== USED LIBRARIES =============
+Based on the work by Stefan Auer <a src='https://github.com/StefanJAuer/RaySAR'>here</a>, translated from Matlab to Python.
 
-os
+`pip install -r requirements.txt`
 
-sys
+(doc in progress)...
 
-json
+## Quick Start
 
-pprint
+`python main.py T62-17`
 
-numpy
+`python main.py CAR`
 
-imageio
+`python main.py PLANE`
 
-matplotlib
+## Parameters
 
-cv2
+The supplied filename is the name of the parameter set that is given as argument. 
 
+In the parameter.json file:
 
-============ TERMINAL USAGE =============
+`az min` is left limit of created image
 
-Terminal usage with current folder structure:
+`az max` is right limit of created image
 
-Set current direcotry to main git folder.
+`az spacing` affects how many horizontal pixels image has
 
-Add parameters to para.json file in the folder,
+`ra min` is up limit of created image
 
-that is automaticly opened when runned.
+`ra max` is down limit of created image
 
-Run main.py with python3
+`ra spacing` affects how many vertical pixels image has
 
-Tell name of wanted parametrs
+`dBmin` sets lowest possible amplitude to whole image
 
-"py main.py T62-17"
+`dBmax` sets highest possible amplitude to whole image
 
-"py main.py CAR"
+`dBrng` allows dB limits to fluctuate within set percent value
 
-"py main.py PLANE"
+`noise` allows measured complex amplitude vectors randomly rotate with given angle limit
 
+`trace level` is maximum bounce number for rays
 
+`response th` is minimum percent value of amplitude from global maximum that gets this effect
 
+`respsonse decay` changes how fastly effect gets smaller
 
+`visual data` plots informative images
 
-============ PARA FILE INFO ==============
+`image rescale` changes output images true pixel size
 
-Filename is name of parameter set that is given as arg
+`upside down` flips image vertically
 
-az min is left limit of created image
-az max is right limit of created image
-az spacing affects how many horizontal pixels image has
-
-ra min is up limit of created image
-ra max is down limit of created image
-ra spacing affects how many vertical pixels image has
-
-dBmin sets lowest possible amplitude to whole image
-dBmax sets highest possible amplitude to whole image
-dBrng allows dB limits to fluctuate within set percent value
-
-noise allows measured complex amplitude vectors randomly rotate with given angle limit
-
-trace level is maximum bounce number for rays
-
-response th is minimum percent value of amplitude from global maximum that gets this effect
-respsonse decay changes how fastly effect gets smaller
-
-visual data plots informative images
-image rescale changes output images true pixel size
-upside down flips image vertically
-
-path is relative path within main git folder to wanted data folder.
+`path` is relative path within main git folder to wanted data folder.
 
 
+## Notes
 
-
-=========== QUICK START ============
-
-Models are usually in middle, but range can change from scene to scene.
+Models are usually rendered in the middle of the output image, but range can change from scene to scene.
 Visual data plots data-coordinate images that can be used to locate object.
 
-Pixel spacing changes resolution. Smaller is higher. Changin this may produce aliasing
+Pixel spacing changes resolution. Smaller is higher. Changing this may produce aliasing
 that is depended on used resolution in the POV-Ray. 
 Good values that don't produce aliasing are:
 2 * az spacing = POV-Ray az spacing and tan(90-incicent) * ra spacing = POV-Ray ra spacing 
