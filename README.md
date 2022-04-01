@@ -1,6 +1,6 @@
 # RaySAR_Python
 
-Based on the work by Stefan Auer <a src='https://github.com/StefanJAuer/RaySAR'>here</a>, translated from Matlab to Python.
+Based on the work by Stefan Auer <a href='https://github.com/StefanJAuer/RaySAR'>here</a>, translated from Matlab to Python.
 
 `pip install -r requirements.txt`
 
